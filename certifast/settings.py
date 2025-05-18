@@ -13,7 +13,8 @@ SECRET_KEY = "django-insecure-wgw!pq62lg0@sd1fg$uwvt@ias$o0+3ljgu=ms(w366mqg5czt
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "100.24.3.37"
+    "100.24.3.37",
+    "certifast.yokwejuste.me",
 ]
 
 # Application definition
