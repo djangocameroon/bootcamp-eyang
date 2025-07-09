@@ -1,0 +1,52 @@
+[
+  {
+    "name": "OpenClassrooms",
+    "accepted_zones": "UE,CA,US",
+    "about": "Plateforme e-learning française offrant des formations certifiantes dans divers domaines technologiques et professionnels."
+  },
+  {
+    "name": "Coursera",
+    "accepted_zones": "Global",
+    "about": "Plateforme internationale proposant des cours en ligne de grandes universités et institutions reconnues."
+  },
+  {
+    "name": "Udemy",
+    "accepted_zones": "Global",
+    "about": "Plateforme de formation en ligne où les utilisateurs peuvent créer et vendre des cours sur des sujets variés."
+  },
+  {
+    "name": "LinkedIn Learning",
+    "accepted_zones": "Global",
+    "about": "Anciennement Lynda.com, cette plateforme propose des formations professionnelles certifiantes intégrées à LinkedIn."
+  },
+  {
+    "name": "Pluralsight",
+    "accepted_zones": "Global",
+    "about": "Plateforme de formation technique pour développeurs, administrateurs système et autres professionnels du numérique."
+  },
+  {
+    "name": "edX",
+    "accepted_zones": "Global",
+    "about": "Organisme à but non lucratif créé par Harvard et le MIT, proposant des MOOCs et certifications de qualité académique."
+  },
+  {
+    "name": "DataCamp",
+    "accepted_zones": "Global",
+    "about": "Spécialisé dans l’apprentissage de la science des données, Python, R et SQL avec certifications à la clé."
+  },
+  {
+    "name": "AWS Training & Certification",
+    "accepted_zones": "Global",
+    "about": "Amazon Web Services propose une gamme complète de certifications techniques cloud très demandées dans l'industrie."
+  },
+  {
+    "name": "Google Career Certificates",
+    "accepted_zones": "Global",
+    "about": "Certifications professionnelles lancées par Google dans les domaines IT, analyse de données, gestion de projet, etc."
+  },
+  {
+    "name": "Microsoft Learn",
+    "accepted_zones": "Global",
+    "about": "Plateforme éducative gratuite de Microsoft avec des certifications officielles sur Azure, Office 365, développement .NET, etc."
+  }
+]

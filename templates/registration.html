@@ -1,0 +1,39 @@
+{% load static%}
+<link href="{% static 'css/auth.css' %}" rel="stylesheet">
+
+  <form id="myform" method= 'POST', action= '{% url 'registration' %}' >
+    {% csrf_token %}
+        <div id="error message"class="error-message">
+            {% for message in messages%}
+             <h5> {{message}}</h5>
+                 {% endfor %}
+        </div>
+        
+         <h1 style="color:rgb(37, 121, 190);"> Sign up here</h1>
+    <p style="color:rgb(37, 121, 190);">Get certified and add value to your profile</p><hr>
+    <h4> <input  type="text" id="inputField" name='first_name' placeholder="Enter your First Name" required /> </h4>
+    <h4> <input  type="text" id="inputField" name='last_name' placeholder="Enter your Last Name" required /> </h4>
+    <h4> <input  type="text" id="inputField" name='username' placeholder="Enter Username" required /> </h4>
+    <h4> <input  type="text" id="inputField" name='email' placeholder="Enter Email Address" required /></h4>
+    <h4> <input  type="contact" id="inputField" name='contact' placeholder="Enter your Contact" required /></h4>
+    <h4> <input  type="text" id="inputField" name='address' placeholder="Enter Address" required /></h4>
+    <h4> <input  type="text" id="inputField" name='career' placeholder="Enter Current / Future Career Path" required /></h4>
+    <h4> 
+       <select id="selectField" name="status" required>
+        <option id="inputField" value="Select Status">Update current status</option>
+        <option id="inputField" value="College Student">College Student</option>
+        <option id="inputField" value="University Student">University Student</option>
+        <option id="inputField" value="University Student">Teacher</option>
+        <option id="inputField" value="University Student">Employer</option>
+        <option id="inputField" value="University Student">Entrepreneur</option>
+       </select></h4>
+    <h4>  <input  type="text" id="inputField" name='password' placeholder="Enter Password" required /></h4>
+    <h4>  <input  type="text" id="inputField" name='password1' placeholder="Confirm Password" required /></h4> 
+    <button onclick="validateInput()" type="submit">
+        Save
+    </button>
+   <a href='login/'> <button  type="button">Login</button><a/>
+    </form>
+
+
+<script src="{% static 'JS/auth.js' %}"></script>

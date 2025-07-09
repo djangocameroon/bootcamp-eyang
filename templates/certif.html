@@ -1,0 +1,87 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block title %}Certifications | Certifast{% endblock %}
+{% block content %}
+
+<div class="flex flex-row   items-center space-y-5 space-x-5  ">
+    <input type="text" placeholder="Search" class="input input-bordered w-full max-w-2xl rounded-3xl mt-4" />
+     <button class="btn btn-ghost btn-circle">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="size-9 stroke-1 hover:size-10 ">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+      </button>
+
+</div>
+
+<div class="flex w-full h-64">
+
+</div>
+<div class="divider width:2"></div>
+<div class="container mx-auto px-1 py-4">
+
+    <!-- Grille de certifications -->
+    <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-4 gap-y-6 gap-x-1 mb-8 place-items-center line-height-12px">
+        {% for certif in certifications %}
+        <div class="card bg-base-100 w-11/12 h-64   hover:shadow-lg hover:transition-shadow  duration-500 hover:duration-500">
+            <!-- Image -->
+            <figure>
+                <img src="{{ certif.image.url }}" alt="{{ certif.name }}" class="w-full h-48 object-cover max-h-32 min-h-32">
+            </figure>
+
+            <!-- Corps de la carte -->
+            <div class="card-body p-4 pb-2 pt-2">
+                <!-- Titre et badge de difficulté -->
+                <h2 class="card-title text-xl" >
+                    {{ certif.name }}
+                    <div class="badge
+                        {% if certif.level_of_difficulty == '0' %}badge-success
+                        {% elif certif.level_of_difficulty == '1' %}badge-info
+                        {% elif certif.level_of_difficulty == '2' %}badge-warning
+                        {% elif certif.level_of_difficulty == '3' %}badge-error
+                        {% else %}badge-neutral{% endif %} ">
+                        {{ certif.get_level_of_difficulty_display }}
+                    </div>
+                </h2>
+
+                <!-- Description courte
+                <p>{{ certif.description|truncatechars:56 }}</p>   -->
+
+                <!-- Badges pour catégories et langues -->
+                <div class="card-actions justify-between mt-1">
+                    <div>
+                        {% for category in certif.category.all|slice:":2" %}
+                        <div class="badge badge-outline mr-1">{{ category.name }}</div>
+                        {% endfor %}
+                    </div>
+                <!-- Boutons d'action -->
+                     <a href="{{ certif.get_absolute_url }}" class="btn btn-primary btn-sm"><button class="btn btn-ghost btn-sm">Détails</button></a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-span-full text-center py-12">
+            <p class="text-gray-500">Aucune certification disponible pour le moment.</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination DaisyUI -->
+    <div class="flex justify-center mt-8">
+        <div class="join">
+            {% if certifications.has_previous %}
+                <a href="?page=1" class="join-item btn">«</a>
+                <a href="?page={{ certifications.previous_page_number }}" class="join-item btn">‹</a>
+            {% endif %}
+
+            <span class="join-item btn">
+                Page {{ certifications.number }} sur {{ certifications.paginator.num_pages }}
+            </span>
+
+            {% if certifications.has_next %}
+                <a href="?page={{ certifications.next_page_number }}" class="join-item btn">›</a>
+                <a href="?page={{ certifications.paginator.num_pages }}" class="join-item btn">»</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

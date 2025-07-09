@@ -1,17 +1,62 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Certifications | Certifast{% endblock %}
 {% block content %}
-<div class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-extrabold text-blue-700 mb-8 text-center">Certifications</h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {% for cert in certifications %}
-            {% #cert_card  image_url=cert.image.url  name=cert.name category=cert.category.name detail_url=certification_detail id %}{% /cert_card %}
-        {% empty %}
-        <div class="col-span-full text-center text-gray-400">No certifications found.</div>
-        {% endfor %}
-    </div>
+
+
+
+<!-- Background image covering the whole page -->
+<div id="bg-slider1" class="fixed inset-0 -z-10 bg-cover bg-center brightness-50 transition-opacity duration-1000 opacity-100" style="background-image: url({% static 'img/img1.jpg' %});"></div>
+<!-- Contenu au-dessus -->
+<div id="bg-slider2" class="fixed inset-0 -z-10 bg-cover bg-center brightness-50 transition-opacity duration-1000 opacity-0"></div>
+
+<div class="animate-in fade-in duration-500 flex flex-col items-center pt-32 justify-center">
+  <!-- Texte style Candy Crush -->
+  <div class="font-agbalumo text-6xl md:text-8xl text-white text-center mb-8
+              [text-shadow:_4px_4px_0_#f78fb3,_6px_6px_0_#f8a5c2,_8px_8px_0_#f9b9d1]
+              tracking-wide select-none">
+    Get Certified Just Now!
+  </div>
 </div>
+
+<div class="animate-in fade-in duration-500 flex flex-col items-center pt-36 pb-24 justify-center">
+ <a href="certif/" class="text-blue-600 no-underline "> <button class="btn btn-accent btn-outline hover:bg-blue-500 w-48">Get started</button></a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+
+<script>
+    const bgImages = [
+    "{% static 'img/img1.jpg' %}",
+    "{% static 'img/img2.jpg' %}",
+    "{% static 'img/img3.jpg' %}"
+  ];
+  let bgIndex = 0;
+  let showingFirst = true;
+
+  setInterval(() => {
+    const nextIndex = (bgIndex + 1) % bgImages.length;
+    const first = document.getElementById('bg-slider1');
+    const second = document.getElementById('bg-slider2');
+
+    if (showingFirst) {
+      second.style.backgroundImage = `url(${bgImages[nextIndex]})`;
+      second.style.opacity = 1;
+      first.style.opacity = 0;
+    } else {
+      first.style.backgroundImage = `url(${bgImages[nextIndex]})`;
+      first.style.opacity = 1;
+      second.style.opacity = 0;
+    }
+    showingFirst = !showingFirst;
+    bgIndex = nextIndex;
+  }, 18000);
+
+  document.getElementById('menu-button')?.addEventListener('click', function () {
+    alert("log-in first");
+  });
+
+</script>
+
+
 {% endblock %}
-
-
-
