@@ -1,0 +1,148 @@
+/* .regis{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color: rgb(163, 232, 241);
+    margin: 200px;
+    margin-left: 700px;
+    margin-right:700px;
+    height:600px;
+    border-color: blue;
+    border-radius: 50px;
+    
+}
+
+.regis:hover{
+    color-scheme:inherit;
+
+}
+
+.h1,h4,hr{
+    color:rgb(13, 13, 39)
+    
+}
+
+
+
+.input{
+    width: 200px;
+    height:30px;
+    border-radius: 50px;
+    border-width: 1px;
+}
+
+.button{
+    border-radius: 50px;
+    background-color: rgb(184, 207, 226);
+}
+
+.input:hover{
+    background-color:rgb(136, 160, 212);
+    transition: 1s;
+} */
+
+
+
+body{
+    background-color:rgb(217, 232, 238);
+}
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-sersif;
+} 
+
+form{
+    width: min(90%,25em);
+    /* color:white; */
+    /* background-color: rgb(33, 64, 235); */
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    padding: 5em 2em;
+    /* border-radius: 0.5em; */
+    border-style:groove;
+    /* border-width: 5px; */
+    border-color: rgb(9, 142, 231);
+    box-shadow: 50px 1px 20px grey;
+}
+.error-message{
+    color: red;
+    /* visibility: hidden; */
+    transition: visibility 0.3s ease;
+
+}
+input{
+    display: block;
+    width: 100% ;
+    padding: 1em;
+    outline: none;
+    color: rgb(1, 17, 27);
+    border: none;
+    border-radius:0.3em ;
+    transition: background-color 0.3s ease;
+}
+
+button{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    height:auto;
+    width: auto;
+    padding: 1em;
+    outline: none;
+    color: rgb(1, 17, 27);
+    border: none;
+    border-radius:50px;
+    transition: background-color 0.3s ease;
+}
+
+.inputField{
+    width: 100px;
+    height: 100px;
+}
+
+.selectField{
+    width: 200px;
+    height: 100px;
+}
+
+input{
+    background-color: rgb(220, 238, 245);
+    margin-top: 2.5em;
+    border: 1px solid rgb(0, 44, 139)
+}
+button{
+    background-color: rgb(177, 210, 214);
+    margin-top: 2.5em;
+    cursor: pointer;
+}
+.shake{
+    animation: shake 0.5s ease-in-out;
+}
+@keyframes shake{
+    0%{
+        transform: translateX(0);
+    }
+    
+    25%{
+        transform: translateX(-5px);
+    }
+    
+    50%{
+        transform: translateX(5px);
+    }
+    
+    75%{
+        transform: translateX(-5px);
+    }
+    
+    100%{
+        transform: translateX(0);
+    }
+}

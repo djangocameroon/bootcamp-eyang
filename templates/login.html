@@ -1,0 +1,42 @@
+{% load static%}
+
+<link href="{% static 'css/auth.css' %}" rel="stylesheet">
+
+{% comment %} {% for message in messages%}
+<h5> {{message}}</h5>
+{% endfor %}
+<link href="{% static 'css/auth.css' %}" rel="stylesheet">
+
+<div class= 'regis'>
+    <form method= 'POST', action= 'login'>
+    {% csrf_token%}
+    <h1> Sign up here</h1>
+    <p>Get certified and add value to your profile</p><hr>
+    <h4>Username: <input class= 'input' type="text" name="username" /> </h4>
+    <h4>Password: <input class= 'input' type="password" name="password" /></h4>
+    <input class='button' type="submit"/>
+    </form>
+</div> {% endcomment %}
+
+
+ <form id="myform" method= 'POST', action= '{% url 'login' %}' >
+    {% csrf_token %}
+        <div id="error message"class="error-message">
+            {% for message in messages%}
+             <h5> {{message}}</h5>
+                 {% endfor %}
+        </div>
+        
+         <h1 style="color:rgb(37, 121, 190);"> Login </h1>
+    <p style="color:rgb(37, 121, 190);">Get certified and add value to your profile</p><hr>
+   <h4> <input  type="text" id="inputField" name='username' placeholder="Enter Username" required /> </h4>
+    <h4>  <input  type="text" id="inputField" name ='password' placeholder="Enter Password" required></h4>
+   
+    <button onclick="validateInput()" type="submit">Get started</button>
+
+     <h5 > If you don't have an account,  <a style="color:rgb(37, 121, 190);" href="{% url 'registration' %}">Sign up</a></h5>
+     <a style="color:rgb(37, 121, 190);" href="{% url 'password_reset' %}">Forgot your password?</a>  
+     </form>
+
+
+<script src="{% static 'JS/auth.js' %}"></script>
