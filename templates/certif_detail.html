@@ -1,0 +1,120 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+<a href="{% url 'certification_list' %}" class="btn btn-ghost mb-1 mt-3 text-red-600 hover:bg-red-700 hover:text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+        </svg>
+        Retour à la liste
+    </a>
+<div class="flex justify-around mx-1 px-1 py-2 bg-gradient-to-br from-blue-50 to-blue-100">
+    <!-- Bouton
+
+  retour -->
+
+    <!-- Carte principale -->
+    <div class="card  w-3/12">
+        <figure class="px-1 pt-10">
+            <img src="{{ certif.image.url }}" alt="{{ certif.name }}" class="rounded-xl h-64 object-cover">
+        </figure>
+    </div>
+    <div class="card w-7/12  ">
+        <div class="card-body ">
+            <!-- En-tête avec titre et difficulté -->
+            <div class="flex justify-between items-start">
+                <h1 class="card-title  text-4xl text-black">{{ certif.name }}</h1>
+            </div>
+            
+            <!-- Institution -->
+            <div class="flex items-center mt-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+                </svg>
+                <span class="text-lg text-black">{{ certif.institution.name }}</span>
+            </div>
+            <!-- Description complète -->
+            <div class="mt-6">
+                <h2 class="text-xl text-black font-bold mb-2">Description</h2>
+                <p class="whitespace-pre-line text-black">{{ certif.description }}</p>
+            </div>
+
+            <!-- Bouton d'action -->
+           <a href="{{ certif.link }}" target="_blank" > <button class="btn btn-link">
+
+                    Learn More
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                        <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                    </svg>
+
+            </button> </a>
+
+            <!-- Prix et durée -->
+            <div class="flex w-9/12 justify-around items-center  p-1 rounded-box ">
+
+                <button class="btn btn-ghost btn-outline text-green-600 hover:bg-green-600 hover:text-white">{{ certif.price }} $ </button>
+
+                     <!-- Prix et
+                    {% if certif.discounts %}
+                    <span class="text-sm ml-2">({{ certif.discounts }} de réduction)</span>
+                    {% endif %}
+                    durée -->
+
+
+                <button class="btn btn-ghost btn-outline text-black"> {{ certif.duration_of_validity }}</button>
+                         {% for language in languages %}
+                      <button class="btn btn-ghost btn-outline text-black"> {{ language.name }}</button>
+                        {% endfor %}
+
+            </div>
+            <div class="divider w-full  text-rose-700 ">Catégories </div>
+            
+
+            
+            <!-- Informations détaillées -->
+
+                <!-- Catégories -->
+                <div class="text-green-800 p-1 rounded-box">
+                    <div class="flex flex-wrap gap-2">
+                        {% for category in categories %}
+                         <button class="btn btn-ghost btn-outline text-amber-600 hover:bg-amber-600 hover:text-white">{{ category.name }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+           <div class="divider w-full  text-rose-700 ">Skills </div>
+                <!-- Topics -->
+                <div class="text-blue-600 p-1 rounded-box">
+                    <div class="flex flex-wrap gap-2">
+                        {% for topic in topics %}
+                         <button class="btn btn-ghost btn-outline text-blue-600 hover:bg-blue-600 hover:text-white">{{ topic.name }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                
+                <!-- Prérequis -->
+                <div class="text-blue-600 p-1 rounded-box">
+                    <div class="divider w-full  text-rose-700 ">Prérequis </div>
+                    {% if prerequisites %}
+                    <ul class="list-disc pl-5">
+                        {% for prereq in prerequisites %}
+
+
+                             <li>{{ prereq.title }}</li>
+
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>Aucun prérequis spécifié</p>
+                    {% endif %}
+                </div>
+                
+                <!-- Site d'examen -->
+
+
+            
+
+        </div>
+    </div>
+</div>
+{% endblock %}
