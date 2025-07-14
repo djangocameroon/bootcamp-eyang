@@ -4,9 +4,25 @@ module.exports = {
     '../../**/templates/**/*.html',
     './static/**/*.js',
   ],
+
   theme: {
-    extend: {},
+
+    extend: {
+        fontFamily: {
+      agbalumo: ['Agbalumo', 'sans-serif'],
+    },},
   },
-  plugins: [],
-};
+  plugins: [
+      require('tailwindcss-animate'),
+      require('daisyui'),
+      require('@tailwindcss/forms'),
+      require('@tailwindcss/typography'),
+
+
+  ],
+
+  daisyui: {
+    themes: true,
+  }
+}
 

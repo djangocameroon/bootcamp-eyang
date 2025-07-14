@@ -1,71 +1,117 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Certifast{% endblock %}</title>
-    <link href="{% static 'css/output.css' %}" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.bootstrap5.min.css" rel="stylesheet">
-    <style>
-        .ts-wrapper .ts-control {
-            border-color: rgb(209, 213, 219);
-            border-radius: 0.25rem;
-            min-height: 42px;
-            padding: 0.5rem;
-        }
-        .ts-wrapper.multi .ts-control .item {
-            background-color: #3b82f6;
-            color: white;
-            border-radius: 0.25rem;
-            padding: 0.25rem 0.5rem;
-            margin: 0.15rem;
-        }
-        .ts-wrapper.multi .ts-control .item.active {
-            background-color: #2563eb;
-        }
-    </style>
-</head>
-<body class="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen">
-<nav class="bg-white/80 backdrop-blur shadow-lg mb-10 sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/" class="text-3xl font-extrabold text-blue-700 tracking-tight flex items-center gap-2">
-            <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" stroke-width="2"
-                 viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
-            </svg>
-            Certifast
-        </a>
-        <div class="space-x-6 text-lg">
-            <a href="{% url 'index' %}" class="text-gray-700 hover:text-blue-600 transition font-medium">Home</a>
-            <a href="{% url 'add_certification' %}" class="text-gray-700 hover:text-blue-600 transition font-medium">Add Certification</a>
-            <a href="{% url 'index' %}" class="text-gray-700 hover:text-blue-600 transition font-medium">Certifications</a>
-        </div>
+    <link href="{% static 'css/output.css' %}" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.bootstrap5.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.x.x/dist/full.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="">
+    <div class="navbar bg-base-100 shadow-sm mb-10">
+      <div class="flex-none">
+        <button class="btn btn-square btn-ghost" id="menu-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="inline-block h-5 w-5 stroke-current"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <div class="flex-1">
+        <a class="btn btn-ghost text-xl">CERTIFAST</a>
+      </div>
+      <div class="space-x-6 menu menu-horizontal px-6 text-lg">
+        <a
+          href="{% url 'index' %}"
+          class="text-gray-700 hover:text-blue-600 transition font-medium"
+          >Home</a
+        >
+        <a
+          href="{% url 'add_certification' %}"
+          class="text-gray-700 hover:text-blue-600 transition font-medium"
+          >Add Certification</a
+        >
+        <a
+          href="{% url 'index' %}"
+          class="text-gray-700 hover:text-blue-600 transition font-medium"
+          >Certifications</a
+        >
+        <a
+          href="{% url 'career_opportunities' %}"
+          class="text-gray-700 hover:text-blue-600 transition font-medium"
+          >Careers</a
+        >
+      </div>
+      <div class="flex-none">
+        <button class="btn btn-square btn-ghost">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="inline-block h-5 w-5 stroke-current"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+            ></path>
+          </svg>
+        </button>
+      </div>
     </div>
-</nav>
-<main class="container mx-auto px-4">
-    {% block content %}{% endblock %}
-</main>
-<footer class="mt-16 py-6 text-center text-gray-400 text-sm">
-    &copy; {% now "Y" %} Certifast. All rights reserved.
-</footer>
+    <main class="container mx-auto px-4">
+      {% block content %} {% endblock %}
+    </main>
+    <footer class="pb-1 mt-16 py-6 text-center text-gray-400 text-sm">
+      &copy; {% now "Y" %} Certifast. All rights reserved.
+    </footer>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
         // Initialize tag-like selection boxes
-        document.querySelectorAll('.js-tags').forEach(function(el) {
-            new TomSelect(el, {
-                plugins: ['remove_button'],
-                create: false,
-                maxItems: null,
-                placeholder: 'Select items...'
-            });
+        document.querySelectorAll(".js-tags").forEach(function (el) {
+          new TomSelect(el, {
+            plugins: ["remove_button"],
+            create: false,
+            maxItems: null,
+            placeholder: "Select items...",
+          });
         });
-    });
-</script>
-{% block extra_scripts %}{% endblock %}
-</body>
-</html>
+      });
 
+      const menuButton = document.getElementById("menu-button");
+      document
+        .getElementById("menu-button")
+        .addEventListener("click", function () {
+          alert("log-in first");
+        });
+    </script>
+    {% block extra_scripts %}{% endblock %}
+  </body>
+</html>
