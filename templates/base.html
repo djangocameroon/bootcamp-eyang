@@ -1,71 +1,117 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Certifast{% endblock %}</title>
-    <link href="{% static 'css/output.css' %}" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+    <link href="{% static 'css/output.css' %}" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.bootstrap5.min.css"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.x.x/dist/full.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.x.x/dist/full.css"
+      rel="stylesheet"
+    />
 
-<link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
-</head>
-<body class="">
-<div class="navbar bg-base-100 shadow-sm mb-10">
-  <div class="flex-none">
-    <button class="btn btn-square btn-ghost" id="menu-button">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg>
-    </button>
-  </div>
-  <div class="flex-1">
-    <a class="btn btn-ghost text-xl">CERTIFAST</a>
-  </div>
-    <div class="space-x-6 menu menu-horizontal px-6 text-lg">
-            <a href="{% url 'index' %}" class="text-gray-700 hover:text-blue-600 transition font-medium">Home</a>
-            <a href="{% url 'add_certification' %}" class="text-gray-700 hover:text-blue-600 transition font-medium">Add Certification</a>
-            <a href="{% url 'index' %}" class="text-gray-700 hover:text-blue-600 transition font-medium">Certifications</a>
-        </div>
-  <div class="flex-none">
-    <button class="btn btn-square btn-ghost">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path> </svg>
-    </button>
-  </div>
-</div>
-<main class="container mx-auto px-4">
-    {% block content %}
+    <link
+      href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="">
+    <div class="navbar bg-base-100 shadow-sm mb-10">
+      <div class="flex-none">
+        <button class="btn btn-square btn-ghost" id="menu-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="inline-block h-5 w-5 stroke-current"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <div class="flex-1">
+        <a class="btn btn-ghost text-xl">CERTIFAST</a>
+      </div>
+      <div class="space-x-6 menu menu-horizontal px-6 text-lg">
+        <a
+          href="{% url 'index' %}"
+          class="text-gray-700 hover:text-blue-600 transition font-medium"
+          >Home</a
+        >
+        <a
+          href="{% url 'add_certification' %}"
+          class="text-gray-700 hover:text-blue-600 transition font-medium"
+          >Add Certification</a
+        >
+        <a
+          href="{% url 'index' %}"
+          class="text-gray-700 hover:text-blue-600 transition font-medium"
+          >Certifications</a
+        >
+        <a
+          href="{% url 'career_opportunities' %}"
+          class="text-gray-700 hover:text-blue-600 transition font-medium"
+          >Careers</a
+        >
+      </div>
+      <div class="flex-none">
+        <button class="btn btn-square btn-ghost">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="inline-block h-5 w-5 stroke-current"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <main class="container mx-auto px-4">
+      {% block content %} {% endblock %}
+    </main>
+    <footer class="pb-1 mt-16 py-6 text-center text-gray-400 text-sm">
+      &copy; {% now "Y" %} Certifast. All rights reserved.
+    </footer>
 
-
-
-    {% endblock %}
-</main>
-<footer class="pb-1 mt-16 py-6 text-center text-gray-400 text-sm">
-    &copy; {% now "Y" %} Certifast. All rights reserved.
-</footer>
-
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
         // Initialize tag-like selection boxes
-        document.querySelectorAll('.js-tags').forEach(function(el) {
-            new TomSelect(el, {
-                plugins: ['remove_button'],
-                create: false,
-                maxItems: null,
-                placeholder: 'Select items...'
-            });
+        document.querySelectorAll(".js-tags").forEach(function (el) {
+          new TomSelect(el, {
+            plugins: ["remove_button"],
+            create: false,
+            maxItems: null,
+            placeholder: "Select items...",
+          });
         });
-    });
+      });
 
-    const menuButton = document.getElementById('menu-button');
-    document.getElementById('menu-button').addEventListener('click', function () {
-    alert("log-in first");
-});
-
-</script>
-{% block extra_scripts %}{% endblock %}
-</body>
+      const menuButton = document.getElementById("menu-button");
+      document
+        .getElementById("menu-button")
+        .addEventListener("click", function () {
+          alert("log-in first");
+        });
+    </script>
+    {% block extra_scripts %}{% endblock %}
+  </body>
 </html>
-

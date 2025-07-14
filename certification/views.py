@@ -123,4 +123,16 @@ class CertificationDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         # Add any additional context data here if needed
         return context
+from django.contrib.auth.decorators import login_required
+from .models import CareerOpportunity
+from django.views.generic import TemplateView
+
+@method_decorator(login_required, name='dispatch')
+class CareerOpportunitiesView(TemplateView):
+    template_name = "career_opportunities.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["jobs"] = CareerOpportunity.objects.filter(is_active=True).order_by("-posted_at")
+        return context
 

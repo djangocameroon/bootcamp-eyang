@@ -148,3 +148,18 @@ class Course(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.institution.name}"
+class CareerOpportunity(models.Model):
+    title = models.CharField(max_length=200)
+    company = models.CharField(max_length=200)
+    location = models.CharField(max_length=200)
+    description = models.TextField()
+    posted_at = models.DateField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
+
+    class Meta:
+        db_table = "career_opportunities"
+        verbose_name_plural = "Career Opportunities"
+        ordering = ["-posted_at"]
+
+    def __str__(self):
+        return f"{self.title} at {self.company}"
